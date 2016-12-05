@@ -8,7 +8,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var core_1 = require("angular2/core");
+var core_1 = require("@angular/core");
 var AdDetailComponent = (function () {
     function AdDetailComponent() {
     }
@@ -16,8 +16,8 @@ var AdDetailComponent = (function () {
 }());
 AdDetailComponent = __decorate([
     core_1.Component({
-        selector: 'ad',
-        templateUrl: 'adDetail.html'
+        selector: 'adDetail',
+        templateUrl: './app/ad/adDetail.html'
     }),
     __metadata("design:paramtypes", [])
 ], AdDetailComponent);

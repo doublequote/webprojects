@@ -40,9 +40,11 @@ gulp.task('copy-components', function() {
 })
 
 gulp.task('copy-libs', function() {
-  gulp.src('node_modules/angular2/**').pipe(gulp.dest('resources/angular2/'));
+  gulp.src('node_modules/@angular/**').pipe(gulp.dest('resources/@angular/'));
   gulp.src('node_modules/jquery/dist/**').pipe(gulp.dest('resources/jquery/'));
   gulp.src('node_modules/rxjs/bundles/**').pipe(gulp.dest('resources/rxjs/'));
   gulp.src('node_modules/systemjs/dist/**').pipe(gulp.dest('resources/systemjs/'));
+  gulp.src('node_modules/zone.js/dist/**').pipe(gulp.dest('resources/zone.js/'));
+  gulp.src('node_modules/reflect-metadata/**').pipe(gulp.dest('resources/reflect-metadata/'));
   gulp.src('node_modules/semantic-ui-calendar/dist/**').pipe(gulp.dest('resources/semantic-ui-calendar/'));
 })

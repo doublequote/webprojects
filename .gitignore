@@ -2,4 +2,5 @@
 node_modules
 frontend/resources/**
 !frontend/resources/assets
+!frontend/resources/app
 frontend/skin/semantic/**
