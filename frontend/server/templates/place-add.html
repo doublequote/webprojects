@@ -1,0 +1,57 @@
+{% extends "root.html" %}
+
+{% block body %}
+
+<div class="ui text container">
+
+  <app>loading..</app>
+
+  <h1 class="ui masthead dividing pink header">Déposer une annonce</h1>
+
+  <form class="ui form">
+    <h2 class="ui dividing header">Les produits</h2>
+      <div class="ui field">
+        <label>Titre</label>
+        <div class="ui input">
+          <input type="text" placeholder="Saisissez un nouveau produit">
+        </div>
+      </div>
+
+    <h2 class="ui dividing header">Partager</h2>
+      <div class="ui field">
+        <label>Partager ce bon plan avec des amis</label>
+        <div class="ui input">
+          <input type="text" placeholder="Saisissez un mail">
+        </div>
+      </div>
+    <h2 class="ui dividing header">Informations sur la livraison</h2>
+      <div class="field">
+        <label>Titre</label>
+        <input type="text" name="title" placeholder="Titre">
+      </div>
+      <div class="field">
+        <label>Lieu</label>
+        <input type="text" name="place" placeholder="Lieu">
+      </div>
+      <div class="field">
+        <label>Date de livraison</label>
+        <div class="ui calendar">
+          <div class="ui input left icon">
+            <i class="calendar icon"></i>
+            <input type="text" placeholder="Date/Time">
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label>Mail</label>
+        <input type="text" name="email" placeholder="Mail">
+      </div>
+      <div class="field">
+        <label>Producteur</label>
+        <textarea type="text" name="producer" placeholder="Producteur"></textarea>
+      </div>
+      <button class="ui primary button" type="submit">Submit</button>
+  </form>
+</div>
+
+{% endblock %}

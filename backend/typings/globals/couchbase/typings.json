@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/88ae50037116bd7ec7597053e31d0bd9e5db0710/couchbase/couchbase.d.ts",
+    "raw": "registry:dt/couchbase#2.1.2+20160909141533",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/88ae50037116bd7ec7597053e31d0bd9e5db0710/couchbase/couchbase.d.ts"
+  }
+}
