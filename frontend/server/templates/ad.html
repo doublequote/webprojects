@@ -1,0 +1,22 @@
+{% extends "root.html" %}
+
+{% block angularHeaders %}
+  <base href="/ad">
+{% endblock %}
+{% block angularApp %}
+  System.import('app').catch(function(err){ console.error(err); });
+{% endblock %}
+
+{% block body %}
+
+<div class="ui main container">
+  <div class="ui text container">
+    <app>
+        <div class="ui inverted active dimmer">
+          <div class="ui text loader">Loading</div>
+        </div>
+    </app>
+  </div>
+</div>
+
+{% endblock %}

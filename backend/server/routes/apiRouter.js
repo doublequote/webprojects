@@ -1,22 +1,22 @@
 "use strict";
 var express = require("express");
+var bodyParser = require("body-parser");
 var adService_1 = require("../services/adService");
-var Ad_1 = require("../model/ad/Ad");
 var router = express.Router();
-router.get('/add-ad', function (req, res) {
+router.post('/add-ad', bodyParser.json(), function (req, res) {
     var adService = new adService_1.AdService();
-    var ad = new Ad_1.Ad();
-    ad.title = "first ad";
-    ad.description = "description test";
+    var ad = req.body;
     adService.insertAd(ad).then(function (data) {
+        console.log(data);
         res.send(data);
     }, function (err) {
         res.send(err);
     });
 });
-router.get('/ad', function (req, res) {
+router.get('/ad/:id', function (req, res) {
     var adService = new adService_1.AdService();
-    adService.getAd('ad_1480868915415').then(function (data) {
+    adService.getAd(req.param('id')).then(function (data) {
+        console.log(data);
         res.send(data);
     }, function (err) {
         res.send(err);

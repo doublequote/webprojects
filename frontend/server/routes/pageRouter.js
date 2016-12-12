@@ -4,8 +4,8 @@ var router = express.Router();
 router.get('/home', function (req, res) {
     res.render("home.html");
 });
-router.get('/place-ad', function (req, res) {
-    res.render("place-add.html");
+router.get('/ad/*', function (req, res) {
+    res.render("ad.html");
 });
 module.exports = router;
 //# sourceMappingURL=pageRouter.js.map

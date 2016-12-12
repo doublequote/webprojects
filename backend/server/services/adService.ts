@@ -10,12 +10,13 @@ export class AdService {
 
   insertAd(ad: Ad): Promise<String> {
     return new Promise((resolve, reject) => {
-      bucket.upsert('ad_' + new Date().getTime(), ad, function(err, result) {
+      var id = 'ad_' + new Date().getTime();
+      bucket.upsert(id, ad, function(err, result) {
         if (err) {
           reject("ad insertion failed" + ad);
         }
         else {
-          resolve("ad insertion ok " + ad);
+          resolve(id);
         }
       });
     });
@@ -25,10 +26,12 @@ export class AdService {
     return new Promise((resolve, reject) => {
       bucket.get(adId, function(err, result) {
         if (err) {
+          console.log(err);
           reject("ad get failed" + adId);
         }
         else {
-          resolve(result);
+          console.log(result.value);
+          resolve(result.value);
         }
       });
     });

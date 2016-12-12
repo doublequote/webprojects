@@ -1,5 +1,7 @@
 ///<reference path="./typings/index.d.ts"/>
 import express = require("express");
+import cors = require("cors");
+import bodyParser = require("body-parser");
 import apiRouter = require("./routes/apiRouter");
 import requestLogger = require("./middleware/requestLogger");
 
@@ -18,6 +20,7 @@ export class BackendServer {
      */
     private configureMiddleware(app: express.Express) {
         app.use(requestLogger);
+        app.use(cors());
     }
 
     private configureRoutes(app: express.Express) {

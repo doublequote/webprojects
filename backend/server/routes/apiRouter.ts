@@ -1,28 +1,29 @@
 import express = require("express");
+import bodyParser = require("body-parser");
 
 import {AdService} from '../services/adService';
 import {Ad} from '../model/ad/Ad';
 
 let router = express.Router();
 
-router.get('/add-ad', (req, res) => {
+router.post('/add-ad', bodyParser.json(), (req, res) => {
   var adService = new AdService();
 
-  var ad = new Ad();
-  ad.title = "first ad";
-  ad.description = "description test";
+  var ad = req.body;
 
   adService.insertAd(ad).then(function(data) {
+    console.log(data);
     res.send(data);
   }, function(err) {
     res.send(err);
   });
 });
 
-router.get('/ad', (req, res) => {
+router.get('/ad/:id', (req, res) => {
   var adService = new AdService();
 
-  adService.getAd('ad_1480868915415').then(function(data) {
+  adService.getAd(req.param('id')).then(function(data) {
+    console.log(data);
     res.send(data);
   }, function(err) {
     res.send(err);

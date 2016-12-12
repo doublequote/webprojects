@@ -7,12 +7,13 @@ var AdService = (function () {
     }
     AdService.prototype.insertAd = function (ad) {
         return new Promise(function (resolve, reject) {
-            bucket.upsert('ad_' + new Date().getTime(), ad, function (err, result) {
+            var id = 'ad_' + new Date().getTime();
+            bucket.upsert(id, ad, function (err, result) {
                 if (err) {
                     reject("ad insertion failed" + ad);
                 }
                 else {
-                    resolve("ad insertion ok " + ad);
+                    resolve(id);
                 }
             });
         });
@@ -21,10 +22,12 @@ var AdService = (function () {
         return new Promise(function (resolve, reject) {
             bucket.get(adId, function (err, result) {
                 if (err) {
+                    console.log(err);
                     reject("ad get failed" + adId);
                 }
                 else {
-                    resolve(result);
+                    console.log(result.value);
+                    resolve(result.value);
                 }
             });
         });

@@ -1,4 +1,5 @@
 "use strict";
+var cors = require("cors");
 var apiRouter = require("./routes/apiRouter");
 var requestLogger = require("./middleware/requestLogger");
 var BackendServer = (function () {
@@ -10,6 +11,7 @@ var BackendServer = (function () {
     }
     BackendServer.prototype.configureMiddleware = function (app) {
         app.use(requestLogger);
+        app.use(cors());
     };
     BackendServer.prototype.configureRoutes = function (app) {
         app.use("/api", apiRouter);

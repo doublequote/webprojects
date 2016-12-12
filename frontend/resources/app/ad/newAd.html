@@ -1,9 +1,11 @@
-<form class="ui form">
+<h1 class="ui masthead dividing blue header">Déposer une annonce</h1>
+
+<div class="ui form">
   <h2 class="ui dividing header">Les produits</h2>
     <div class="ui field">
       <label>Titre</label>
       <div class="ui input">
-        <input type="text" placeholder="Saisissez un nouveau produit" value="{{title}}">
+        <input type="text" placeholder="Saisissez un nouveau produit" [(ngModel)]="ad.title">
       </div>
     </div>
 
@@ -40,5 +42,6 @@
       <label>Producteur</label>
       <textarea type="text" name="producer" placeholder="Producteur"></textarea>
     </div>
-    <button class="ui primary button" type="submit" (click)="add()">Submit</button>
-</form>
+    <button class="ui primary button" type="submit" (click)="add()">Créer le bon plan</button>
+    <p></p>
+</div>

@@ -3,20 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { HttpModule }   from '@angular/http';
 
-import { NewAdComponent }  from './ad/newAd.component';
+import { AppRoutingModule }     from './app-routing.module';
+import { AdModule }     from './ad/ad.module';
+import { AppComponent } from './app.component';
 
 @NgModule({
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule,
+    AdModule
   ],
   declarations: [
-    NewAdComponent
+    AppComponent
   ],
-  bootstrap: [ NewAdComponent ]
+  bootstrap: [ AppComponent ]
 })
-export class AppModule { name="Chargement..."}
+export class AppModule { }
 
 
 /*

@@ -9,32 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var platform_browser_1 = require("@angular/platform-browser");
-var forms_1 = require("@angular/forms");
-var http_1 = require("@angular/http");
-var app_routing_module_1 = require("./app-routing.module");
-var ad_module_1 = require("./ad/ad.module");
-var app_component_1 = require("./app.component");
-var AppModule = (function () {
-    function AppModule() {
+var router_1 = require("@angular/router");
+var newAd_component_1 = require("./newAd.component");
+var adDetail_component_1 = require("./adDetail.component");
+var adRoutes = [
+    { path: 'add', component: newAd_component_1.NewAdComponent },
+    { path: 'ad/:id', component: adDetail_component_1.AdDetailComponent }
+];
+var AdRoutingModule = (function () {
+    function AdRoutingModule() {
     }
-    return AppModule;
+    return AdRoutingModule;
 }());
-AppModule = __decorate([
+AdRoutingModule = __decorate([
     core_1.NgModule({
         imports: [
-            platform_browser_1.BrowserModule,
-            forms_1.FormsModule,
-            http_1.HttpModule,
-            app_routing_module_1.AppRoutingModule,
-            ad_module_1.AdModule
+            router_1.RouterModule.forChild(adRoutes)
         ],
-        declarations: [
-            app_component_1.AppComponent
-        ],
-        bootstrap: [app_component_1.AppComponent]
+        exports: [
+            router_1.RouterModule
+        ]
     }),
     __metadata("design:paramtypes", [])
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], AdRoutingModule);
+exports.AdRoutingModule = AdRoutingModule;
+//# sourceMappingURL=ad-routing.module.js.map

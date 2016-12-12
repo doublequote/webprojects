@@ -12,39 +12,33 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var Ad_1 = require("./Ad");
-var AdDetailComponent = (function () {
-    function AdDetailComponent(http, route, router) {
+var NewAdComponent = (function () {
+    function NewAdComponent(http, router) {
         this.http = http;
-        this.route = route;
         this.router = router;
         this.ad = new Ad_1.Ad();
     }
-    AdDetailComponent.prototype.ngOnInit = function () {
-        var _this = this;
-        this.route.params.subscribe(function (params) {
-            _this.load(params['id']);
-        });
+    NewAdComponent.prototype.ngAfterViewInit = function () {
+        $('.ui.calendar').calendar({ type: 'date' });
     };
-    AdDetailComponent.prototype.load = function (id) {
+    NewAdComponent.prototype.add = function () {
         var _this = this;
-        var observable = this.http.get("http://localhost:5001/api/ad/" + id);
+        var observable = this.http.post("http://localhost:5001/api/add-ad", this.ad);
         observable.subscribe(function (data) {
-            _this.ad = JSON.parse(data._body);
-            console.log(_this.ad);
+            console.log(data);
+            _this.router.navigate(['ad', data._body]);
         }, function (error) {
             console.error(error);
         });
     };
-    return AdDetailComponent;
+    return NewAdComponent;
 }());
-AdDetailComponent = __decorate([
+NewAdComponent = __decorate([
     core_1.Component({
-        selector: 'adDetail',
-        templateUrl: './app/ad/adDetail.html'
+        selector: 'newAd',
+        templateUrl: './app/ad/newAd.html'
     }),
-    __metadata("design:paramtypes", [http_1.Http,
-        router_1.ActivatedRoute,
-        router_1.Router])
-], AdDetailComponent);
-exports.AdDetailComponent = AdDetailComponent;
-//# sourceMappingURL=adDetail.component.js.map
+    __metadata("design:paramtypes", [http_1.Http, router_1.Router])
+], NewAdComponent);
+exports.NewAdComponent = NewAdComponent;
+//# sourceMappingURL=newAd.component.js.map

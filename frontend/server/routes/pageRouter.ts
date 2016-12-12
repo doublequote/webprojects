@@ -6,8 +6,8 @@ router.get('/home', (req, res) => {
   res.render("home.html");
 });
 
-router.get('/place-ad', (req, res) => {
-  res.render("place-add.html");
+router.get('/ad/*', (req, res) => {
+  res.render("ad.html");
 });
 
 export = router;
