@@ -12,17 +12,17 @@ var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
 var router_1 = require("@angular/router");
 var Ad_1 = require("./Ad");
+var Product_1 = require("./Product");
 var NewAdComponent = (function () {
     function NewAdComponent(http, router) {
         this.http = http;
         this.router = router;
         this.ad = new Ad_1.Ad();
+        this.newProduct = new Product_1.Product();
     }
-    NewAdComponent.prototype.ngAfterViewInit = function () {
-        $('.ui.calendar').calendar({ type: 'date' });
-    };
     NewAdComponent.prototype.add = function () {
         var _this = this;
+        console.log(this.ad);
         var observable = this.http.post("http://localhost:5001/api/add-ad", this.ad);
         observable.subscribe(function (data) {
             console.log(data);
@@ -30,6 +30,10 @@ var NewAdComponent = (function () {
         }, function (error) {
             console.error(error);
         });
+    };
+    NewAdComponent.prototype.addProduct = function () {
+        this.ad.products.push(this.newProduct);
+        this.newProduct = new Product_1.Product();
     };
     return NewAdComponent;
 }());

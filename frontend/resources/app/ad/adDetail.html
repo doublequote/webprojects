@@ -1,5 +1,19 @@
 <div *ngIf="ad" class="ui segment">
-  <h1>{{ ad.title }}</h1>
+  <h1 class="ui dividing header" ng-model>{{ ad.title }}</h1>
+  <h2>Invités</h2>
+  <p>{{ad.participants}}</p>
+  <h2>Email</h2>
+  <p>{{ad.email}}</p>
+  <h2>Livraison</h2>
+  <p>{{ad.shipping.title}}</p>
+  <h2>Date de livraison</h2>
+  <p>{{ad.shipping.date}}</p>
+  <h2>Lieu de livraison</h2>
+  <p>{{ad.shipping.place}}</p>
+  <h2>Informations sur le producteur</h2>
+  <p>{{ad.shipping.producer}}</p>
+  <h2>Produits</h2>
+  <p *ngFor="let product of ad.products">{{product.name}}</p>
 </div>
 
 <a class="ui primary button" routerLink="/">Déposer un autre bon plan <i class="right arrow icon"></i></a>

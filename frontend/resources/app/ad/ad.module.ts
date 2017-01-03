@@ -7,6 +7,8 @@ import { AdDetailComponent }  from './adDetail.component';
 
 import { AdRoutingModule } from './ad-routing.module';
 
+import { DatePickerComponent }  from '../ui/date-picker.component';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,7 +17,8 @@ import { AdRoutingModule } from './ad-routing.module';
   ],
   declarations: [
     NewAdComponent,
-    AdDetailComponent
+    AdDetailComponent,
+    DatePickerComponent
   ]
 })
 export class AdModule {}

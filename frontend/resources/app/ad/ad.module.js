@@ -14,6 +14,7 @@ var forms_1 = require("@angular/forms");
 var newAd_component_1 = require("./newAd.component");
 var adDetail_component_1 = require("./adDetail.component");
 var ad_routing_module_1 = require("./ad-routing.module");
+var date_picker_component_1 = require("../ui/date-picker.component");
 var AdModule = (function () {
     function AdModule() {
     }
@@ -28,7 +29,8 @@ AdModule = __decorate([
         ],
         declarations: [
             newAd_component_1.NewAdComponent,
-            adDetail_component_1.AdDetailComponent
+            adDetail_component_1.AdDetailComponent,
+            date_picker_component_1.DatePickerComponent
         ]
     }),
     __metadata("design:paramtypes", [])

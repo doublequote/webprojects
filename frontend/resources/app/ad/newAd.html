@@ -1,47 +1,53 @@
 <h1 class="ui masthead dividing blue header">Déposer une annonce</h1>
 
 <div class="ui form">
-  <h2 class="ui dividing header">Les produits</h2>
-    <div class="ui field">
-      <label>Titre</label>
-      <div class="ui input">
-        <input type="text" placeholder="Saisissez un nouveau produit" [(ngModel)]="ad.title">
-      </div>
+  <h2 class="ui dividing header">Titre de l'annonce</h2>
+  <div class="ui field">
+    <label>Titre</label>
+    <div class="ui input">
+      <input type="text" placeholder="Saisissez un nouveau produit" [(ngModel)]="ad.title">
     </div>
+  </div>
+
+  <h2 class="ui dividing header">Les produits</h2>
+  <div class="ui field" *ngFor="let product of ad.products; let index = index">
+    {{product.name}}
+  </div>
+  <div class="ui field">
+    <div class="ui input">
+      <input type="text" placeholder="Saisissez un nouveau produit" [(ngModel)]="newProduct.name">
+    </div>
+    <button class="ui basic button" type="submit" (click)="addProduct()">Ajouter</button>
+  </div>
 
   <h2 class="ui dividing header">Partager</h2>
-    <div class="ui field">
-      <label>Partager ce bon plan avec des amis</label>
-      <div class="ui input">
-        <input type="text" placeholder="Saisissez un mail">
-      </div>
+  <div class="ui field">
+    <label>Partager ce bon plan avec des amis</label>
+    <div class="ui input">
+      <input type="email" placeholder="Saisissez un mail" [(ngModel)]="ad.participants">
     </div>
+  </div>
   <h2 class="ui dividing header">Informations sur la livraison</h2>
-    <div class="field">
-      <label>Titre</label>
-      <input type="text" name="title" placeholder="Titre">
-    </div>
-    <div class="field">
-      <label>Lieu</label>
-      <input type="text" name="place" placeholder="Lieu">
-    </div>
-    <div class="field">
-      <label>Date de livraison</label>
-      <div class="ui calendar">
-        <div class="ui input left icon">
-          <i class="calendar icon"></i>
-          <input type="text" placeholder="Date/Time">
-        </div>
-      </div>
-    </div>
-    <div class="field">
-      <label>Mail</label>
-      <input type="text" name="email" placeholder="Mail">
-    </div>
-    <div class="field">
-      <label>Producteur</label>
-      <textarea type="text" name="producer" placeholder="Producteur"></textarea>
-    </div>
-    <button class="ui primary button" type="submit" (click)="add()">Créer le bon plan</button>
-    <p></p>
+  <div class="field">
+    <label>Titre</label>
+    <input type="text" name="title" placeholder="Titre" [(ngModel)]="ad.shipping.title">
+  </div>
+  <div class="field">
+    <label>Lieu</label>
+    <input type="text" name="place" placeholder="Lieu" [(ngModel)]="ad.shipping.place">
+  </div>
+  <div class="field">
+    <label>Date de livraison</label>
+    <date-picker [date]="ad.shipping.date"></date-picker>
+  </div>
+  <div class="field">
+    <label>Mail</label>
+    <input type="text" name="email" placeholder="Mail" [(ngModel)]="ad.email">
+  </div>
+  <div class="field">
+    <label>Producteur</label>
+    <textarea type="text" name="producer" placeholder="Producteur" [(ngModel)]="ad.shipping.producer"></textarea>
+  </div>
+  <button class="ui primary button" type="submit" (click)="add()">Créer le bon plan</button>
+  <p></p>
 </div>

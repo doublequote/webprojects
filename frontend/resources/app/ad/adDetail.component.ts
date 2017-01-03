@@ -9,7 +9,7 @@ import { Ad } from './Ad';
 })
 export class AdDetailComponent implements OnInit {
 
-  public as: Ad;
+  public ad: Ad;
 
   constructor (private http: Http,
     private route: ActivatedRoute,
